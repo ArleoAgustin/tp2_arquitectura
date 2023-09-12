@@ -1,6 +1,4 @@
-import dao.DaoPersonaImpl;
-import dao.Interface.DaoPersona;
-import entities.Persona;
+import dao.Interface.DaoEstudiante;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,15 +8,15 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        Persona p1 = new Persona("Agustin", 23);
+        /*Persona p1 = new Persona("Agustin", 23);
         Persona p2 = new Persona("Eusebio", 12);
         Persona p3 = new Persona("Margarito", 33);
-        Persona p4 = new Persona("Claudio", 53);
+        Persona p4 = new Persona("Claudio", 53);*/
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Example");
         EntityManager em = emf.createEntityManager();
 
-        DaoPersona personaDao = new DaoPersonaImpl(em);
+        /*DaoEstudiante personaDao = new DaoEstudianteImpl(em);
         personaDao.addPersona(p1);
         personaDao.addPersona(p2);
         personaDao.addPersona(p3);
@@ -27,7 +25,7 @@ public class Main {
        //personaDao.deletePersona(L);
         System.out.println(personaDao.getPersonas());
        // personaDao.addPersona(p1);
-       // System.out.println(personaDao.getPersonas());
+       // System.out.println(personaDao.getPersonas());*/
         em.close();
         emf.close();
     }

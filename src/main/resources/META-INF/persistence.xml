@@ -8,8 +8,9 @@
         <!-- Persistence provider -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Entity classes -->
-        <class>entity.Persona</class>
-        <class>entity.Direccion</class>
+        <class>entities.Carrera</class>
+        <class>entities.Estudiante</class>
+        <class>entities.RelacionCarreraEstudiante</class>
         <properties>
            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url"    value="jdbc:mysql://LocalHost/prueba" />

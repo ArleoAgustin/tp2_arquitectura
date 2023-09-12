@@ -1,39 +1,39 @@
 package dao;
 
 import connection.Singleton;
-import dao.Interface.DaoPersona;
-import entities.Persona;
+import dao.Interface.DaoEstudiante;
+import entities.Estudiante;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class DaoPersonaImpl  extends Conexion implements DaoPersona {
+public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
 
     private java.sql.Connection conection;
     private EntityManager entityManager;
 
-    public DaoPersonaImpl(EntityManager em) throws Exception {
+    public DaoEstudianteImpl(EntityManager em) throws Exception {
         this.conection = Singleton.getConnection();
         this.entityManager = em;
     }
 
     @Override
-    public void addPersona(Persona p) throws Exception {
+    public void addEstudiante(Estudiante p) throws Exception {
         entityManager.getTransaction().begin();
         entityManager.persist(p);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public void updatePersona(Persona p, Persona pNew) throws Exception {
+    public void updateEstudiante(Estudiante p, Estudiante pNew) throws Exception {
         entityManager.getTransaction().begin();
         entityManager.merge(pNew);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public void deletePersona(Long id) throws Exception {
-        Persona p = obtenerPorId(id);
+    public void deleteEstudiante(Long id) throws Exception {
+        Estudiante p = obtenerPorId(id);
         if (p != null) {
             entityManager.getTransaction().begin();
             entityManager.remove(p);
@@ -41,13 +41,13 @@ public class DaoPersonaImpl  extends Conexion implements DaoPersona {
         }
     }
 
-    public Persona obtenerPorId(Long id) {
-        return entityManager.find(Persona.class, id);
+    public Estudiante obtenerPorId(Long id) {
+        return entityManager.find(Estudiante.class, id);
     }
 
     @Override
-    public List<Persona> getPersonas() throws Exception {
-        List <Persona> query = entityManager.createQuery("SELECT p FROM Persona p").getResultList();
+    public List<Estudiante> getEstudiantes() throws Exception {
+        List <Estudiante> query = entityManager.createQuery("SELECT p FROM Estudiante p").getResultList();
         return query;
     }
 }

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Singleton extends connection.Connection {
 
     private String jdbc_driver = "com.mysql.cj.jdbc.Driver";
-    private String db_url = "jdbc:mysql://LocalHost/dbMysql";
+    private String db_url = "jdbc:mysql://localhost:3306/mysql";
 
     private Singleton() throws Exception {
        this.conectar();

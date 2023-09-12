@@ -53,9 +53,9 @@ public class Carrera {
     @Override
     public String toString() {
         return "Carrera{" +
-                "idCarrera=" + idCarrera +
-                ", inscriptos=" + inscriptos +
-                ", nombre='" + nombre + '\'' +
+                "idCarrera =" + idCarrera +
+                ", inscriptos =" + inscriptos.toString() +
+                ", nombre ='" + nombre + '\'' +
                 '}';
     }
 }

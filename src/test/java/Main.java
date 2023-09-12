@@ -43,10 +43,13 @@ public class Main {
         estudianteDao.addEstudianteToCarrera(e1, c3);*/
 
 
-        System.out.println(e1.getCarrerasInscriptas());
-        System.out.println(e2.getCarrerasInscriptas());
-        System.out.println(e3.getCarrerasInscriptas());
+
+
+
         System.out.println(estudianteDao.getEstudiantes());
+
+        System.out.println("-------------------------");
+
         System.out.println(carreraDao.getCarreras());
 
         em.close();

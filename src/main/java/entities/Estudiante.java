@@ -98,7 +98,7 @@ public class Estudiante {
                 ", edad=" + edad +
                 ", ciudad='" + ciudad + '\'' +
                 ", nroLibreta='" + nroLibreta + '\'' +
-                ", carrerasInscriptas=" + carrerasInscriptas +
+                ", carrerasInscriptas =" + carrerasInscriptas +
                 '}';
     }
 }

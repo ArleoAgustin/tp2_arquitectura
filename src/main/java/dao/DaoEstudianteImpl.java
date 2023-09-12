@@ -62,12 +62,12 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
     }
 
     @Override
-    public List<Estudiante> buscarEstudiantesPorCarrera(Long idCarrera) throws Exception {
+    public List<Estudiante> buscarEstudiantesPorCarrera(Carrera c) throws Exception {
         TypedQuery<Estudiante> query = this.entityManager.createQuery(
-                "SELECT e FROM Estudiante e JOIN RelacionCarreraEstudiante r WHERE r.carrera.id = :idCarrera",
+                "SELECT e FROM Estudiante e JOIN RelacionCarreraEstudiante r WHERE r.carrera.id = :c",
                 Estudiante.class
         );
-        query.setParameter("idCarrera", idCarrera);
+        query.setParameter("c", c.getIdCarrera());
         return query.getResultList();
     }
 

@@ -14,6 +14,6 @@ public interface DaoEstudiante {
 
     public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception;
 
-    public List<Estudiante> buscarEstudiantesPorCarrera(Long idCarrera) throws Exception;
+    public List<Estudiante> buscarEstudiantesPorCarrera(Carrera c) throws Exception;
 
 }

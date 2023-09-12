@@ -17,10 +17,45 @@ public class Carrera {
 
     public Carrera(){}
 
-    public Carrera(Long idCarrera, List<RelacionCarreraEstudiante> inscriptos, String nombre) {
-        this.idCarrera = idCarrera;
+    public Carrera(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Carrera(List<RelacionCarreraEstudiante> inscriptos, String nombre) {
         this.inscriptos = inscriptos;
         this.nombre = nombre;
     }
 
+    public Long getIdCarrera() {
+        return idCarrera;
+    }
+
+    public List<RelacionCarreraEstudiante> getInscriptos() {
+        return inscriptos;
+    }
+
+    public void setInscriptos(List<RelacionCarreraEstudiante> inscriptos) {
+        this.inscriptos = inscriptos;
+    }
+
+    public void addInscripto(RelacionCarreraEstudiante inscripto){
+        this.inscriptos.add(inscripto);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Carrera{" +
+                "idCarrera=" + idCarrera +
+                ", inscriptos=" + inscriptos +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
 }

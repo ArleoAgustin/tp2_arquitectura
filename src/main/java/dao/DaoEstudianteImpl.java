@@ -2,9 +2,12 @@ package dao;
 
 import connection.Singleton;
 import dao.Interface.DaoEstudiante;
+import entities.Carrera;
 import entities.Estudiante;
+import entities.RelacionCarreraEstudiante;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
@@ -46,8 +49,34 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
     }
 
     @Override
-    public List<Estudiante> getEstudiantes() throws Exception {
-        List <Estudiante> query = entityManager.createQuery("SELECT p FROM Estudiante p").getResultList();
-        return query;
+    public List getEstudiantes() throws Exception {
+        return  entityManager.createQuery("SELECT p FROM Estudiante p").getResultList();
+    }
+
+    @Override
+    public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception {
+        this.entityManager.getTransaction().begin();
+        RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(c, e);
+        entityManager.persist(rce);
+        entityManager.getTransaction().commit();
+    }
+
+    @Override
+    public List<Estudiante> buscarEstudiantesPorCarrera(Long idCarrera) throws Exception {
+        TypedQuery<Estudiante> query = this.entityManager.createQuery(
+                "SELECT e FROM Estudiante e JOIN RelacionCarreraEstudiante r WHERE r.carrera.id = :idCarrera",
+                Estudiante.class
+        );
+        query.setParameter("idCarrera", idCarrera);
+        return query.getResultList();
+    }
+
+    public List getCarrerasIscriptas() {
+        this.entityManager.getTransaction().begin();
+        TypedQuery<Carrera> query = this.entityManager.createQuery(
+                "SELECT DISTINCT r.carrera FROM RelacionCarreraEstudiante r",
+                Carrera.class
+        );
+        return query.getResultList();
     }
 }

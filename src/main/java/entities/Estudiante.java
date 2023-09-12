@@ -80,7 +80,25 @@ public class Estudiante {
         return carrerasInscriptas;
     }
 
+    public void addCarrera(Carrera c) {
+        RelacionCarreraEstudiante carreraInscripta = new RelacionCarreraEstudiante(c, this);
+        this.carrerasInscriptas.add(carreraInscripta);
+    }
+
     public void setCarrerasInscriptas(List<RelacionCarreraEstudiante> carrerasInscriptas) {
         this.carrerasInscriptas = carrerasInscriptas;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "dni=" + dni +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                ", ciudad='" + ciudad + '\'' +
+                ", nroLibreta='" + nroLibreta + '\'' +
+                ", carrerasInscriptas=" + carrerasInscriptas +
+                '}';
     }
 }

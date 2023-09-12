@@ -1,12 +1,14 @@
 package entities;
 
 import javax.persistence.*;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
 public class RelacionCarreraEstudiante {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @ManyToOne
     @JoinColumn(name = "dni")
@@ -20,14 +22,21 @@ public class RelacionCarreraEstudiante {
 
     private LocalDateTime fechaDeEgreso;
 
+    public RelacionCarreraEstudiante(){}
+
+    public RelacionCarreraEstudiante(Carrera carrera, Estudiante estudiante) {
+        this.estudiante = estudiante;
+        this.carrera = carrera;
+        this.fechaDeInscripcion = LocalDateTime.now();
+        this.fechaDeEgreso = null;
+    }
+
     public RelacionCarreraEstudiante(Long id, Estudiante estudiante, Carrera carrera, LocalDateTime fechaDeInscripcion) {
         this.id = id;
         this.estudiante = estudiante;
         this.carrera = carrera;
         this.fechaDeInscripcion = fechaDeInscripcion;
     }
-
-    public RelacionCarreraEstudiante(){}
 
     public Long getId() {
         return id;
@@ -55,5 +64,13 @@ public class RelacionCarreraEstudiante {
 
     public void setFechaDeEgreso(LocalDateTime fechaDeEgreso) {
         this.fechaDeEgreso = fechaDeEgreso;
+    }
+
+
+    @Override
+    public String toString() {
+        return "carrera: " + carrera.getNombre() + "\n" +
+                "estudiante: " + estudiante.getNombre() + "\n" +
+                "fechaDeInscripcion: " + fechaDeInscripcion;
     }
 }

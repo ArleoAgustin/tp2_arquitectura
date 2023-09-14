@@ -46,4 +46,9 @@ public class DaoRelacionCarreraEstudianteImpl extends Conexion implements DaoRel
         String query = "SELECT r.carrera FROM RelacionCarreraEstudiante r WHERE r.estudiante = " + e.getDni();
         return this.entityManager.createQuery(query).getResultList();
     }
+
+    @Override
+    public boolean existeRelacion(Carrera c, Estudiante e) throws Exception {
+        return ((entityManager.createQuery("SELECT c FROM RelacionCarreraEstudiante c WHERE c.carrera = " + c.getIdCarrera() + " AND c.estudiante = " + e.getDni()).getResultList().size()) > 0);
+    }
 }

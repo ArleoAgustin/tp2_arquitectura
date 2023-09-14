@@ -5,7 +5,6 @@ import java.util.List;
 @Entity
 public class Carrera {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCarrera;
@@ -38,7 +37,8 @@ public class Carrera {
         this.inscriptos = inscriptos;
     }
 
-    public void addInscripto(RelacionCarreraEstudiante inscripto){
+    public void matricularEstudiante(Estudiante e) {
+        RelacionCarreraEstudiante inscripto = new RelacionCarreraEstudiante(this, e);
         this.inscriptos.add(inscripto);
     }
 
@@ -50,12 +50,20 @@ public class Carrera {
         this.nombre = nombre;
     }
 
+    private String getEstudiantesInscriptos(){
+        if(this.inscriptos == null || this.inscriptos.size() == 0) return "no hay inscritos";
+        String estudiantes = "";
+        for (RelacionCarreraEstudiante inscripto : inscriptos) {
+            estudiantes += inscripto.getEstudiante().getApellido() + " " + inscripto.getEstudiante().getNombre() + ", ";
+        }
+        return estudiantes;
+    }
+
+
     @Override
     public String toString() {
-        return "Carrera{" +
-                "idCarrera =" + idCarrera +
-                ", inscriptos =" + inscriptos.toString() +
-                ", nombre ='" + nombre + '\'' +
-                '}';
+        return "Carrera{" +nombre +
+                ", inscriptos = " + this.getEstudiantesInscriptos() +
+                '}'+'\'';
     }
 }

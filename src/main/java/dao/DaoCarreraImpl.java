@@ -54,17 +54,15 @@ public class DaoCarreraImpl extends Conexion implements DaoCarrera {
     }
 
     @Override
-    public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception {
-        RelacionCarreraEstudiante r = new RelacionCarreraEstudiante(c, e);
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(r);
-        this.entityManager.getTransaction().commit();
+    public void matricularACarrera(Estudiante e, Carrera c) throws Exception {
+        RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(c, e);
+        entityManager.getTransaction().begin();
+        entityManager.persist(rce);
+        entityManager.getTransaction().commit();
     }
 
     public List getInscriptosA(Carrera c) throws Exception{
         return this.entityManager.createQuery("SELECT r FROM RelacionCarreraEstudiante r WHERE r.carrera = " + c.getIdCarrera()).getResultList();
     }
-
-
 
 }

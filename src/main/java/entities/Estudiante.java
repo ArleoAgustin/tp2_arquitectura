@@ -18,26 +18,36 @@ public class Estudiante {
     private int edad;
 
     @Column
+    private String genero;
+
+
+    @Column
     private String ciudad;
 
     @Column(name = "nro_libreta")
-    private String nroLibreta;
+    private int nroLibreta;
 
     @OneToMany(mappedBy = "estudiante")
     private List<RelacionCarreraEstudiante> carrerasInscriptas;
 
-    public Estudiante(Long dni, String nombre, String apellido, int edad, String ciudad) {
+    public Estudiante(Long dni, String nombre, String apellido, int edad, String genero, String ciudad, int nroLibreta) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.ciudad = ciudad;
+        this.nroLibreta = nroLibreta;
+        this.genero = genero;
     }
 
     public Estudiante() {}
 
     public Long getDni() {
         return dni;
+    }
+
+    public String getGenero() {
+        return genero;
     }
 
     public String getNombre() {
@@ -68,11 +78,11 @@ public class Estudiante {
         this.ciudad = ciudad;
     }
 
-    public String getNroLibreta() {
+    public int getNroLibreta() {
         return nroLibreta;
     }
 
-    public void setNroLibreta(String nroLibreta) {
+    public void setNroLibreta(int nroLibreta) {
         this.nroLibreta = nroLibreta;
     }
 
@@ -89,6 +99,18 @@ public class Estudiante {
         this.carrerasInscriptas = carrerasInscriptas;
     }
 
+    private String obtenerListaCarreras() {
+        String result = "";
+        if(this.carrerasInscriptas != null) {
+            for (RelacionCarreraEstudiante carrera : this.carrerasInscriptas) {
+                result += carrera.getCarrera().getNombre() + ", ";
+            }
+            return result;
+        } else {
+            return "no hay inscriptos";
+        }
+    }
+
     @Override
     public String toString() {
         return "Estudiante{" +
@@ -98,7 +120,7 @@ public class Estudiante {
                 ", edad=" + edad +
                 ", ciudad='" + ciudad + '\'' +
                 ", nroLibreta='" + nroLibreta + '\'' +
-                ", carrerasInscriptas =" + carrerasInscriptas +
+                ", carrerasInscriptas = " + this.obtenerListaCarreras() +
                 '}';
     }
 }

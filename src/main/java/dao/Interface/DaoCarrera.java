@@ -13,7 +13,7 @@ public interface DaoCarrera {
     public void updateCarrera(Carrera c) throws Exception;
     public List<Carrera> getCarreras() throws Exception;
 
-    public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception;
+    public void matricularACarrera(Estudiante e, Carrera c) throws Exception;
 
     public List getInscriptosA(Carrera c) throws Exception;
 }

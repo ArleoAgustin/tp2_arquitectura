@@ -14,4 +14,6 @@ public interface DaoRelacionCarreraEstudiante {
     public List<Estudiante> getEstudiantesDe(Carrera c) throws Exception;
 
     public List<Carrera> getCarrerasDe(Estudiante e) throws Exception;
+
+    public boolean existeRelacion(Carrera c, Estudiante e) throws Exception;
 }

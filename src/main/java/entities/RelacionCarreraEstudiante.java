@@ -69,7 +69,7 @@ public class RelacionCarreraEstudiante {
 
     @Override
     public String toString() {
-        return  "{"+carrera.getNombre() +
+        return  "{carrera: "+carrera.getNombre() +
                 " inscripto: " + estudiante.getNombre()  +
                 " fechaDeInscripcion: " + fechaDeInscripcion +"}"+ "\n";
     }

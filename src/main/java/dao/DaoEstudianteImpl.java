@@ -57,12 +57,12 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
     @Override
     public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception {
             RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(c, e);
-            this.entityManager.getTransaction().begin();
-            if(!this.entityManager.contains(rce)) {
+            DaoRelacionCarreraEstudianteImpl daoRelacionCarreraEstudiante = new DaoRelacionCarreraEstudianteImpl(this.entityManager);
+            if(!daoRelacionCarreraEstudiante.existeRelacion(c,e)) {
+                this.entityManager.getTransaction().begin();
                 this.entityManager.persist(rce);
                 this.entityManager.getTransaction().commit();
             }
-
     }
 
     @Override

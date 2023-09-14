@@ -1,22 +1,23 @@
 package entities;
 
 import javax.persistence.*;
+import javax.persistence.GenerationType;
 import java.util.List;
 @Entity
 public class Carrera {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCarrera;
     @OneToMany(mappedBy = "carrera")
     private List<RelacionCarreraEstudiante> inscriptos;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique=true)
     private String nombre;
 
     public Carrera(){}
 
-    public Carrera(String nombre, long id) {
-        this.idCarrera = id;
+    public Carrera(String nombre) {
         this.nombre = nombre;
     }
 

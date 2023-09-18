@@ -1,11 +1,11 @@
-package dao.Interface;
+package percistence.Interface;
 
-import entities.Carrera;
-import entities.Estudiante;
+import percistence.entities.Carrera;
+import percistence.entities.Estudiante;
 
 import java.util.List;
 
-public interface DaoCarrera {
+public interface InterfaceCarreraRepository {
 
     public void addCarrera(Carrera c) throws Exception;
     public void deleteCarrera(Long id) throws Exception;

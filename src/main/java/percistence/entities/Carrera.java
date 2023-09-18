@@ -1,7 +1,6 @@
-package entities;
+package percistence.entities;
 
 import javax.persistence.*;
-import javax.persistence.GenerationType;
 import java.util.List;
 @Entity
 public class Carrera {

@@ -1,11 +1,11 @@
-package connection;
+package percistence.connection;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Singleton extends connection.Connection {
+public class Singleton extends percistence.connection.Connection {
 
     private String jdbc_driver = "com.mysql.cj.jdbc.Driver";
     private String db_url = "jdbc:mysql://localhost:3306/mysql";
@@ -18,7 +18,7 @@ public class Singleton extends connection.Connection {
         return conection;
     }
 
-    public connection.Connection getInstance() throws Exception {
+    public percistence.connection.Connection getInstance() throws Exception {
         if (instance == null) {
             instance = new Singleton();
         }

@@ -1,11 +1,11 @@
-package dao.Interface;
+package percistence.Interface;
 
-import entities.Carrera;
-import entities.Estudiante;
+import percistence.entities.Carrera;
+import percistence.entities.Estudiante;
 
 import java.util.List;
 
-public interface DaoEstudiante {
+public interface InterfaceEstudianteRepository {
 
     public void addEstudiante(Estudiante p) throws Exception;
     public void updateEstudiante(Estudiante p, Estudiante pNew) throws Exception;

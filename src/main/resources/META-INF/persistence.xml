@@ -8,9 +8,9 @@
         <!-- Persistence provider -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Entity classes -->
-        <class>entities.Carrera</class>
-        <class>entities.Estudiante</class>
-        <class>entities.RelacionCarreraEstudiante</class>
+        <class>percistence.entities.Carrera</class>
+        <class>percistence.entities.Estudiante</class>
+        <class>percistence.entities.RelacionCarreraEstudiante</class>
         <properties>
            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url"    value="jdbc:mysql://localhost:3306/mysql_db" />

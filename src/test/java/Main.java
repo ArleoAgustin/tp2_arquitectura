@@ -1,9 +1,9 @@
-import dao.DaoCarreraImpl;
-import dao.DaoEstudianteImpl;
-import dao.Interface.DaoCarrera;
-import dao.Interface.DaoEstudiante;
-import entities.Carrera;
-import entities.Estudiante;
+import percistence.repositories.CarreraRepository;
+import percistence.repositories.EstudianteRepository;
+import percistence.Interface.InterfaceCarreraRepository;
+import percistence.Interface.InterfaceEstudianteRepository;
+import percistence.entities.Carrera;
+import percistence.entities.Estudiante;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,8 +26,8 @@ public class Main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
         EntityManager em = emf.createEntityManager();
 
-        DaoCarrera carreraDao = new DaoCarreraImpl(em);
-        DaoEstudiante estudianteDao = new DaoEstudianteImpl(em);
+        InterfaceCarreraRepository carreraDao = new CarreraRepository(em);
+        InterfaceEstudianteRepository estudianteDao = new EstudianteRepository(em);
 
         /*carreraDao.addCarrera(c1);
         carreraDao.addCarrera(c2);

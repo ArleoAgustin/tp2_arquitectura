@@ -1,21 +1,21 @@
-package dao;
+package percistence.repositories;
 
-import connection.Singleton;
-import dao.Interface.DaoEstudiante;
-import entities.Carrera;
-import entities.Estudiante;
-import entities.RelacionCarreraEstudiante;
+import percistence.connection.Singleton;
+import percistence.Interface.InterfaceEstudianteRepository;
+import percistence.entities.Carrera;
+import percistence.entities.Estudiante;
+import percistence.entities.RelacionCarreraEstudiante;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
+public class EstudianteRepository implements InterfaceEstudianteRepository {
 
     private java.sql.Connection conection;
     private EntityManager entityManager;
 
-    public DaoEstudianteImpl(EntityManager em) throws Exception {
+    public EstudianteRepository(EntityManager em) throws Exception {
         this.conection = Singleton.getConnection();
         this.entityManager = em;
     }

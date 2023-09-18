@@ -1,4 +1,4 @@
-package connection;
+package percistence.connection;
 
 public abstract class Connection {
 

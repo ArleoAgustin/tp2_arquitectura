@@ -18,4 +18,6 @@ public interface DaoEstudiante {
 
     List<Estudiante> getEstudiantesOrderByLastName() throws Exception;
 
+    Estudiante getBy(int nroLibreta) throws Exception;
+
 }

@@ -76,6 +76,12 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
         return entityManager.createQuery("SELECT e FROM Estudiante e ORDER BY e.apellido ASC", Estudiante.class).getResultList();
     }
 
+    @Override
+    public Estudiante getBy(int nroLibreta) throws Exception {
+        return this.entityManager.createQuery("SELECT e FROM Estudiante e WHERE e.nroLibreta = :nroLibreta",
+                Estudiante.class).setParameter("nroLibreta", nroLibreta).getSingleResult();
+    }
+
     public List getCarrerasIscriptas() {
         this.entityManager.getTransaction().begin();
         TypedQuery<Carrera> query = this.entityManager.createQuery(
@@ -84,4 +90,6 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
         );
         return query.getResultList();
     }
+
+
 }

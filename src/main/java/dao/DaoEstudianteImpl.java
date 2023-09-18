@@ -71,6 +71,11 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
         return query.getResultList();
     }
 
+    @Override
+    public List<Estudiante> getEstudiantesOrderByLastName() throws Exception {
+        return entityManager.createQuery("SELECT e FROM Estudiante e ORDER BY e.apellido ASC", Estudiante.class).getResultList();
+    }
+
     public List getCarrerasIscriptas() {
         this.entityManager.getTransaction().begin();
         TypedQuery<Carrera> query = this.entityManager.createQuery(

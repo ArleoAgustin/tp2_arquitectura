@@ -16,4 +16,6 @@ public interface DaoEstudiante {
 
     public List<Estudiante> buscarEstudiantesPorCarrera(Carrera c) throws Exception;
 
+    List<Estudiante> getEstudiantesOrderByLastName() throws Exception;
+
 }

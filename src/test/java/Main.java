@@ -38,13 +38,15 @@ public class Main {
         estudianteDao.addEstudiante(e3);
 */
 
-        estudianteDao.addEstudianteToCarrera(e3, c1);
+
         /*carreraDao.matricularACarrera(e1, c2);
         estudianteDao.addEstudianteToCarrera(e1, c1);
         estudianteDao.addEstudianteToCarrera(e1, c3) ;
         estudianteDao.addEstudianteToCarrera(e2, c2);
         estudianteDao.addEstudianteToCarrera(e3, c3);*/
 
+        System.out.println(estudianteDao.getEstudiantesOrderByLastName());
+        System.out.println("-------------------------");
 
         System.out.println(estudianteDao.getEstudiantes());
 

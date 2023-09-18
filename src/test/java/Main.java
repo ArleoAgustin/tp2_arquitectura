@@ -15,7 +15,7 @@ public class Main {
 
         Estudiante e1 = new Estudiante(41690992L, "juan carlos", "maldacena", 22, "hombre", "tandil",210203);
         Estudiante e2 = new Estudiante(41690993L, "alfa", "romeo", 24, "hombre","tandil",2910321);
-        Estudiante e3 = new Estudiante(41690994L, "agustin", "carretero", 23, "mujer","tandil",12321321);
+        Estudiante e3 = new Estudiante(41690994L, "agustin", "carretero", 23, "mujer","azul",12321321);
 
         Carrera c1 = new Carrera("ingenieria de sistemas",1);
         Carrera c2 = new Carrera("ingenieria en telecomunicaciones",2);
@@ -36,9 +36,11 @@ public class Main {
         estudianteDao.addEstudiante(e1);
         estudianteDao.addEstudiante(e2);
         estudianteDao.addEstudiante(e3);
+
 */
-
-
+        /*Estudiante e4 = new Estudiante(41690995L, "roman", "elperi", 23, "mujer","azul",12321321);
+        estudianteDao.addEstudiante(e4);
+        carreraDao.matricularACarrera(e4,c1);*/
         /*carreraDao.matricularACarrera(e1, c2);
         estudianteDao.addEstudianteToCarrera(e1, c1);
         estudianteDao.addEstudianteToCarrera(e1, c3) ;
@@ -46,7 +48,7 @@ public class Main {
         estudianteDao.addEstudianteToCarrera(e3, c3);*/
 
 
-        System.out.println(carreraDao.getWithIscriptosOrderByCant());
+        System.out.println(estudianteDao.getAllBy("ingenieria de sistemas","tandil"));
 
 
         em.close();

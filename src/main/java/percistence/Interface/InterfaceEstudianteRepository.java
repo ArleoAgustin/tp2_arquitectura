@@ -20,4 +20,9 @@ public interface InterfaceEstudianteRepository {
 
     Estudiante getBy(int nroLibreta) throws Exception;
 
+    List<Estudiante> getAllBy(String genero) throws Exception;
+
+    List<Estudiante> getAllBy(String carrera, String ciudad) throws Exception;
+
+
 }

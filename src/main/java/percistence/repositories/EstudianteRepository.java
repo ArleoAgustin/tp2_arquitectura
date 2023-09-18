@@ -82,6 +82,24 @@ public class EstudianteRepository implements InterfaceEstudianteRepository {
                 Estudiante.class).setParameter("nroLibreta", nroLibreta).getSingleResult();
     }
 
+    @Override
+    public List getAllBy(String genero) throws Exception {
+        return entityManager.createQuery("SELECT e FROM Estudiante e WHERE e.genero = :genero").setParameter("genero", genero).getResultList();
+    }
+
+    @Override
+    public List<Estudiante> getAllBy(String carrera, String ciudad) throws Exception {
+        String jpql = "SELECT e " +
+                "FROM Estudiante e " +
+                "JOIN e.carrerasInscriptas c " +
+                "WHERE c.carrera.nombre = :nombreCarrera " +
+                "AND e.ciudad = :ciudad";
+        TypedQuery<Estudiante> query =  this.entityManager.createQuery(jpql, Estudiante.class);
+        query.setParameter("ciudad", ciudad);
+        query.setParameter("nombreCarrera", carrera);
+        return query.getResultList();
+    }
+
     public List getCarrerasIscriptas() {
         this.entityManager.getTransaction().begin();
         TypedQuery<Carrera> query = this.entityManager.createQuery(

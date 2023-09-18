@@ -1,9 +1,11 @@
-version: 'v2.20.2-desktop.1'
+version: '3'
 
 services:
-  mysqlDB:
+  mysql-container:
     image: mysql:latest
     ports:
       - "3306:3306"
+    container_name: container_mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=admin
+       MYSQL_ROOT_PASSWORD: admin
+       MYSQL_DATABASE: mysql_db

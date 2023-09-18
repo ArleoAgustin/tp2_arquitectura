@@ -115,11 +115,11 @@ public class Estudiante {
     public String toString() {
         return "Estudiante{" +
                 "dni=" + dni +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
+                ", nombre='" + nombre +
+                ", apellido='" + apellido +
                 ", edad=" + edad +
-                ", ciudad='" + ciudad + '\'' +
-                ", nroLibreta='" + nroLibreta + '\'' +
+                ", ciudad='" + ciudad +
+                ", nroLibreta='" + nroLibreta +
                 ", carrerasInscriptas = " + this.obtenerListaCarreras() +
                 '}'+'\n';
     }

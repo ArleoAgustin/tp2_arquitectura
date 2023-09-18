@@ -22,25 +22,28 @@ public class Main {
         Carrera c3 = new Carrera("veterinaria",3);
 
 
+
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
         EntityManager em = emf.createEntityManager();
 
         DaoCarrera carreraDao = new DaoCarreraImpl(em);
+        DaoEstudiante estudianteDao = new DaoEstudianteImpl(em);
+
         /*carreraDao.addCarrera(c1);
         carreraDao.addCarrera(c2);
-        carreraDao.addCarrera(c3);*/
+        carreraDao.addCarrera(c3);
 
-        carreraDao.matricularACarrera(e1, c2);
-
-
-        DaoEstudiante estudianteDao = new DaoEstudianteImpl(em);
-        /*estudianteDao.addEstudiante(e1);
+        estudianteDao.addEstudiante(e1);
         estudianteDao.addEstudiante(e2);
-        estudianteDao.addEstudiante(e3);*/
-        /*estudianteDao.addEstudianteToCarrera(e1, c1);
+        estudianteDao.addEstudiante(e3);
+*/
+
+        estudianteDao.addEstudianteToCarrera(e3, c1);
+        /*carreraDao.matricularACarrera(e1, c2);
+        estudianteDao.addEstudianteToCarrera(e1, c1);
+        estudianteDao.addEstudianteToCarrera(e1, c3) ;
         estudianteDao.addEstudianteToCarrera(e2, c2);
-        estudianteDao.addEstudianteToCarrera(e3, c3);
-        estudianteDao.addEstudianteToCarrera(e1, c3) ;*/
+        estudianteDao.addEstudianteToCarrera(e3, c3);*/
 
 
         System.out.println(estudianteDao.getEstudiantes());

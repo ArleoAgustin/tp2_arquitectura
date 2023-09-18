@@ -7,7 +7,6 @@ import java.util.List;
 public class Carrera {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCarrera;
     @OneToMany(mappedBy = "carrera")
     private List<RelacionCarreraEstudiante> inscriptos;
@@ -70,6 +69,6 @@ public class Carrera {
     public String toString() {
         return "Carrera{" +nombre +
                 ", inscriptos = " + this.getEstudiantesInscriptos() +
-                '}'+'\'';
+                '}'+'\n';
     }
 }

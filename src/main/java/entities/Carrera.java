@@ -8,7 +8,7 @@ public class Carrera {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCarrera;
+    private int idCarrera;
     @OneToMany(mappedBy = "carrera")
     private List<RelacionCarreraEstudiante> inscriptos;
 
@@ -17,8 +17,9 @@ public class Carrera {
 
     public Carrera(){}
 
-    public Carrera(String nombre) {
+    public Carrera(String nombre, int idCarrera) {
         this.nombre = nombre;
+        this.idCarrera = idCarrera;
     }
 
     public Carrera(List<RelacionCarreraEstudiante> inscriptos, String nombre) {
@@ -26,7 +27,7 @@ public class Carrera {
         this.nombre = nombre;
     }
 
-    public Long getIdCarrera() {
+    public int getIdCarrera() {
         return idCarrera;
     }
 

@@ -121,6 +121,6 @@ public class Estudiante {
                 ", ciudad='" + ciudad + '\'' +
                 ", nroLibreta='" + nroLibreta + '\'' +
                 ", carrerasInscriptas = " + this.obtenerListaCarreras() +
-                '}';
+                '}'+'\n';
     }
 }

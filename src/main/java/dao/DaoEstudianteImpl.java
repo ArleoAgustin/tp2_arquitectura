@@ -2,7 +2,6 @@ package dao;
 
 import connection.Singleton;
 import dao.Interface.DaoEstudiante;
-import dao.Interface.DaoRelacionCarreraEstudiante;
 import entities.Carrera;
 import entities.Estudiante;
 import entities.RelacionCarreraEstudiante;
@@ -56,13 +55,10 @@ public class DaoEstudianteImpl extends Conexion implements DaoEstudiante {
 
     @Override
     public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception {
-            RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(c, e);
-            DaoRelacionCarreraEstudianteImpl daoRelacionCarreraEstudiante = new DaoRelacionCarreraEstudianteImpl(this.entityManager);
-            if(!daoRelacionCarreraEstudiante.existeRelacion(c,e)) {
-                this.entityManager.getTransaction().begin();
-                this.entityManager.persist(rce);
-                this.entityManager.getTransaction().commit();
-            }
+        RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(c, e);
+        this.entityManager.getTransaction().begin();
+        this.entityManager.persist(rce);
+        this.entityManager.getTransaction().commit();
     }
 
     @Override

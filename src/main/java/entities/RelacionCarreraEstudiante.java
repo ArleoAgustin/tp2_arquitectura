@@ -5,6 +5,7 @@ import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "RelacionCarreraEstudiante", uniqueConstraints = @UniqueConstraint(columnNames = { "dni", "idCarrera" }))
 public class RelacionCarreraEstudiante {
 
     @Id

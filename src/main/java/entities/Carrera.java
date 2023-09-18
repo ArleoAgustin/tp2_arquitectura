@@ -17,6 +17,10 @@ public class Carrera {
 
     public Carrera(){}
 
+    public Carrera(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Carrera(String nombre, int idCarrera) {
         this.nombre = nombre;
         this.idCarrera = idCarrera;

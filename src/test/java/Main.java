@@ -45,16 +45,9 @@ public class Main {
         estudianteDao.addEstudianteToCarrera(e2, c2);
         estudianteDao.addEstudianteToCarrera(e3, c3);*/
 
-        System.out.println(estudianteDao.getBy(12321321));
 
-        System.out.println(estudianteDao.getEstudiantesOrderByLastName());
-        System.out.println("-------------------------");
+        System.out.println(carreraDao.getWithIscriptosOrderByCant());
 
-        System.out.println(estudianteDao.getEstudiantes());
-
-        System.out.println("-------------------------");
-
-        System.out.println(carreraDao.getCarreras());
 
         em.close();
         emf.close();

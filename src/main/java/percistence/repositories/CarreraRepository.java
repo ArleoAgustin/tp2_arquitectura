@@ -65,4 +65,13 @@ public class CarreraRepository implements InterfaceCarreraRepository {
         return this.entityManager.createQuery("SELECT r FROM RelacionCarreraEstudiante r WHERE r.carrera = " + c.getIdCarrera()).getResultList();
     }
 
+    @Override
+    public List<Carrera> getWithIscriptosOrderByCant() throws Exception {
+        String jpql = "SELECT c " +
+                "FROM Carrera c " +
+                "WHERE SIZE(c.inscriptos) > 0 " +
+                "ORDER BY SIZE(c.inscriptos) DESC";
+        return this.entityManager.createQuery(jpql,Carrera.class).getResultList();
+    }
+
 }

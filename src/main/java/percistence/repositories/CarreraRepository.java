@@ -1,6 +1,5 @@
 package percistence.repositories;
 
-import percistence.connection.Singleton;
 import percistence.Interface.InterfaceCarreraRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
@@ -11,12 +10,10 @@ import java.util.List;
 
 public class CarreraRepository implements InterfaceCarreraRepository {
 
-    private java.sql.Connection conection;
     private EntityManager entityManager;
 
-    public CarreraRepository(EntityManager em) throws Exception {
-        this.conection = Singleton.getConnection();
-        this.entityManager = em;
+    public CarreraRepository() throws Exception {
+        this.entityManager = percistence.connection.EntityManager.getEntityManager();
     }
 
     @Override

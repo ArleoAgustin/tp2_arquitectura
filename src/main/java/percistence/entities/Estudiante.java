@@ -1,13 +1,14 @@
 package percistence.entities;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Estudiante {
 
     @Id
-    private Long dni;
+    private int dni;
 
     @Column(nullable = false)
     private String nombre;
@@ -30,7 +31,7 @@ public class Estudiante {
     @OneToMany(mappedBy = "estudiante")
     private List<RelacionCarreraEstudiante> carrerasInscriptas;
 
-    public Estudiante(Long dni, String nombre, String apellido, int edad, String genero, String ciudad, int nroLibreta) {
+    public Estudiante(int dni, String nombre, String apellido, int edad, String genero, String ciudad, int nroLibreta) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -42,7 +43,7 @@ public class Estudiante {
 
     public Estudiante() {}
 
-    public Long getDni() {
+    public int getDni() {
         return dni;
     }
 

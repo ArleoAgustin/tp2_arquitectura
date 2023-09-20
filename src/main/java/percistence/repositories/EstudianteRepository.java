@@ -1,7 +1,7 @@
 package percistence.repositories;
 
 import percistence.connection.Singleton;
-import percistence.Interface.InterfaceEstudianteRepository;
+import percistence.repositories.Interface.InterfaceEstudianteRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;

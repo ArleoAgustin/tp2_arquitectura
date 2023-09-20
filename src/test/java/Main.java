@@ -1,7 +1,7 @@
 import percistence.repositories.CarreraRepository;
 import percistence.repositories.EstudianteRepository;
-import percistence.Interface.InterfaceCarreraRepository;
-import percistence.Interface.InterfaceEstudianteRepository;
+import percistence.repositories.Interface.InterfaceCarreraRepository;
+import percistence.repositories.Interface.InterfaceEstudianteRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 
@@ -13,9 +13,9 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        Estudiante e1 = new Estudiante(41690992L, "juan carlos", "maldacena", 22, "hombre", "tandil",210203);
-        Estudiante e2 = new Estudiante(41690993L, "alfa", "romeo", 24, "hombre","tandil",2910321);
-        Estudiante e3 = new Estudiante(41690994L, "agustin", "carretero", 23, "mujer","azul",12321321);
+        Estudiante e1 = new Estudiante(41690992, "juan carlos", "maldacena", 22, "hombre", "tandil",210203);
+        Estudiante e2 = new Estudiante(41690993, "alfa", "romeo", 24, "hombre","tandil",2910321);
+        Estudiante e3 = new Estudiante(41690994, "agustin", "carretero", 23, "mujer","azul",12321321);
 
         Carrera c1 = new Carrera("ingenieria de sistemas",1);
         Carrera c2 = new Carrera("ingenieria en telecomunicaciones",2);

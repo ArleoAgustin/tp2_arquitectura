@@ -1,4 +1,4 @@
-package percistence.Interface;
+package percistence.repositories.Interface;
 
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;

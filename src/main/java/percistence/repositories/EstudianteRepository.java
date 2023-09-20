@@ -2,6 +2,7 @@ package percistence.repositories;
 
 import percistence.connection.Singleton;
 import percistence.repositories.Interface.InterfaceEstudianteRepository;
+import percistence.Interface.InterfaceEstudianteRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;
@@ -12,12 +13,10 @@ import java.util.List;
 
 public class EstudianteRepository implements InterfaceEstudianteRepository {
 
-    private java.sql.Connection conection;
     private EntityManager entityManager;
 
-    public EstudianteRepository(EntityManager em) throws Exception {
-        this.conection = Singleton.getConnection();
-        this.entityManager = em;
+    public EstudianteRepository() throws Exception {
+        this.entityManager = percistence.connection.EntityManager.getEntityManager();
     }
 
     @Override

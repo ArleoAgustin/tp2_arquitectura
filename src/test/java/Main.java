@@ -23,35 +23,47 @@ public class Main {
 
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
-        EntityManager em = emf.createEntityManager();
+//instancia repository's
 
-        InterfaceCarreraRepository carreraDao = new CarreraRepository(em);
-        InterfaceEstudianteRepository estudianteDao = new EstudianteRepository(em);
+        InterfaceCarreraRepository carreraRepository = new CarreraRepository();
+        InterfaceEstudianteRepository estudianteRepository = new EstudianteRepository();
 
-        /*carreraDao.addCarrera(c1);
-        carreraDao.addCarrera(c2);
-        carreraDao.addCarrera(c3);
+//agrega agrega las carreras
+/*
+        carreraRepository.addCarrera(c1);
+        carreraRepository.addCarrera(c2);
+        carreraRepository.addCarrera(c3);
 
-        estudianteDao.addEstudiante(e1);
-        estudianteDao.addEstudiante(e2);
-        estudianteDao.addEstudiante(e3);
+//agrega los estudiantes
 
+        estudianteRepository.addEstudiante(e1);
+        estudianteRepository.addEstudiante(e2);
+        estudianteRepository.addEstudiante(e3);
+        estudianteRepository.addEstudiante(e4);
 */
-        /*Estudiante e4 = new Estudiante(41690995L, "roman", "elperi", 23, "mujer","azul",12321321);
-        estudianteDao.addEstudiante(e4);
-        carreraDao.matricularACarrera(e4,c1);*/
-        /*carreraDao.matricularACarrera(e1, c2);
-        estudianteDao.addEstudianteToCarrera(e1, c1);
-        estudianteDao.addEstudianteToCarrera(e1, c3) ;
-        estudianteDao.addEstudianteToCarrera(e2, c2);
-        estudianteDao.addEstudianteToCarrera(e3, c3);*/
+
+/*
+//matricula alumnos en una carrera
+
+        carreraRepository.matricularACarrera(e4,c1);
+        carreraRepository.matricularACarrera(e1, c2);
+*/
+
+//agrega estudiantes a carreras
+
+/*      estudianteRepository.addEstudianteToCarrera(e1, c1);
+        estudianteRepository.addEstudianteToCarrera(e1, c3) ;
+        estudianteRepository.addEstudianteToCarrera(e2, c2);
+        estudianteRepository.addEstudianteToCarrera(e3, c3);
+ */
+
+        System.out.println(carreraRepository.getCarreras());        //obtiene todas las carreras
+        System.out.println(estudianteRepository.getEstudiantes());  //obtiene todos los estudiantes
+
+    //    System.out.println(estudianteRepository.getAllBy("ingenieria de sistemas","tandil"));
 
 
-        System.out.println(estudianteDao.getAllBy("ingenieria de sistemas","tandil"));
-
-
-        em.close();
-        emf.close();
+//cierra la conexion
+        EntityManager.closeEntityManager();
     }
 }

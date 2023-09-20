@@ -6,6 +6,7 @@ import DTOs.EstudianteReporte;
 import DTOs.ReporteDeCarreras;
 import percistence.connection.Singleton;
 import percistence.repositories.Interface.InterfaceCarreraRepository;
+import percistence.Interface.InterfaceCarreraRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;
@@ -19,12 +20,10 @@ import java.util.Map;
 
 public class CarreraRepository implements InterfaceCarreraRepository {
 
-    private java.sql.Connection conection;
     private EntityManager entityManager;
 
-    public CarreraRepository(EntityManager em) throws Exception {
-        this.conection = Singleton.getConnection();
-        this.entityManager = em;
+    public CarreraRepository() throws Exception {
+        this.entityManager = percistence.connection.EntityManager.getEntityManager();
     }
 
     @Override

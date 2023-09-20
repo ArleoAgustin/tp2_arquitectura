@@ -23,7 +23,8 @@ public class Main {
 
 
 
-//instancia repository's
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp2");
+        EntityManager em = emf.createEntityManager();
 
         InterfaceCarreraRepository carreraRepository = new CarreraRepository();
         InterfaceEstudianteRepository estudianteRepository = new EstudianteRepository();
@@ -60,10 +61,7 @@ public class Main {
         System.out.println(carreraRepository.getCarreras());        //obtiene todas las carreras
         System.out.println(estudianteRepository.getEstudiantes());  //obtiene todos los estudiantes
 
-    //    System.out.println(estudianteRepository.getAllBy("ingenieria de sistemas","tandil"));
-
-
-//cierra la conexion
-        EntityManager.closeEntityManager();
+        em.close();
+        emf.close();
     }
 }

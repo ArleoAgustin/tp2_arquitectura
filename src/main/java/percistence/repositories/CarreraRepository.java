@@ -1,12 +1,6 @@
 package percistence.repositories;
 
-import DTOs.Anio;
-import DTOs.CarreraPorAnios;
-import DTOs.EstudianteReporte;
-import DTOs.ReporteDeCarreras;
-import percistence.connection.Singleton;
 import percistence.repositories.Interface.InterfaceCarreraRepository;
-import percistence.Interface.InterfaceCarreraRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;

@@ -28,10 +28,9 @@ public class EstudianteReporte {
 
     @Override
     public String toString() {
-        return "EstudianteReporte{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
+        return  nombre  +
+                ", " + apellido + '\'' +
                 ", dni=" + dni +
-                '}';
+                '\n';
     }
 }

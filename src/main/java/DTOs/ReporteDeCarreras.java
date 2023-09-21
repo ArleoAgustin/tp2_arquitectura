@@ -13,6 +13,15 @@ public class ReporteDeCarreras {
         this.carreras = new ArrayList<>(carreras);
     }
 
+    public void addCarrera(List <CarreraPorAnios> carreras){
+        this.carreras.addAll(carreras);
+    }
 
 
+    @Override
+    public String toString() {
+        return "ReporteDeCarreras{" +
+                " " + carreras +
+                '}'+'\n';
+    }
 }

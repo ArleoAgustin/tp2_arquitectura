@@ -11,14 +11,12 @@ public class Anio {
     private  List<EstudianteReporte> inscriptos;
     private  List<EstudianteReporte> egresados;
 
-    public Anio(int anio){
-        this.anio = anio;
-    }
 
-    public Anio(int anio, List<EstudianteReporte> inscriptos, List<EstudianteReporte> egresados) {
+
+    public Anio(int anio) {
         this.anio = anio;
-        this.inscriptos = inscriptos;
-        this.egresados = egresados;
+        this.inscriptos = new ArrayList<>();
+        this.egresados = new ArrayList<>();
     }
 
     public int getAnio() {
@@ -41,5 +39,11 @@ public class Anio {
         egresados.add(e);
     }
 
-
+    @Override
+    public String toString() {
+        return
+                ", inscriptos=" + inscriptos +
+                ", egresados=" + egresados +
+                '}'+'\n';
+    }
 }

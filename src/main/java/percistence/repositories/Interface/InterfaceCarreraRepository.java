@@ -24,6 +24,6 @@ public interface InterfaceCarreraRepository {
 
     List<Carrera> getWithIscriptosOrderByCant() throws Exception;
 
-    /*ReporteDeCarreras getReport();*/
+    ReporteDeCarreras getReport();
 
 }

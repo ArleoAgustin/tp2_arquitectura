@@ -1,5 +1,9 @@
 package percistence.repositories;
 
+import DTOs.CarreraEstudiante;
+import DTOs.CarreraPorAnios;
+import DTOs.EstudianteReporte;
+import DTOs.ReporteDeCarreras;
 import percistence.repositories.Interface.InterfaceCarreraRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
@@ -75,45 +79,32 @@ public class CarreraRepository implements InterfaceCarreraRepository {
         return this.entityManager.createQuery(jpql,Carrera.class).getResultList();
     }
 
-/*
     public ReporteDeCarreras getReport(){
-        String jpql = "SELECT c.nombre, YEAR(e.fechaInscripcion), e, COUNT(e) " +
+        String jpql = "SELECT c, r, e " +
                 "FROM Carrera c " +
-                "JOIN c.estudiantes e " +
-                "GROUP BY c.nombre, YEAR(e.fechaInscripcion)";
+                "INNER JOIN c.inscriptos r " +
+                "INNER JOIN r.estudiante e";
 
         TypedQuery<Object[]> query = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> resultados = query.getResultList();
-
-        Map<String, Map<Integer, Anio>> datosPorCarreraYAnio = new HashMap<>();
-
-        for (Object[] resultado : resultados) {
-            String nombreCarrera = (String) resultado[0];
-            int annoInscripcion = (int) resultado[1];
-            Estudiante estudiante = (Estudiante) resultado[2];
-            long cantidadEstudiantes = (long) resultado[3];
-
-            Map<Integer, Anio> aniosPorCarrera = datosPorCarreraYAnio.computeIfAbsent(nombreCarrera, k -> new HashMap<>());
-
-            Anio anio = aniosPorCarrera.computeIfAbsent(annoInscripcion, k -> new Anio(annoInscripcion));
-
-            if (estudiante.getCarrerasInscriptas()) {
-                anio.addEgresado(new EstudianteReporte(estudiante.getDni(), estudiante.getNombre(), estudiante.getApellido()));
-            } else {
-                anio.addIscripto(new EstudianteReporte(estudiante.getDni(), estudiante.getNombre(), estudiante.getApellido()));
+        List<CarreraEstudiante> data = new ArrayList<>();
+        for (Object[] resultado : resultados){
+            data.add(new CarreraEstudiante((Carrera)resultado[0], (Estudiante)resultado[2], (RelacionCarreraEstudiante)resultado[1]));
+        }
+        HashMap<String, CarreraPorAnios> carreras = new HashMap<>();
+        for (CarreraEstudiante carreraEstudiante : data) {
+            String nombreCarrera = carreraEstudiante.getCarrera().getNombre();
+            if(!carreras.containsKey(carreraEstudiante.getCarrera().getNombre())){
+                carreras.put(nombreCarrera, new CarreraPorAnios(nombreCarrera));
+            }
+            carreras.get(nombreCarrera).addIngresante(new EstudianteReporte(carreraEstudiante.getEstudiante().getDni(), carreraEstudiante.getEstudiante().getNombre(), carreraEstudiante.getEstudiante().getApellido()) , carreraEstudiante.getRelacionCarreraEstudiante().getFechaDeInscripcion().getYear());
+            if(carreraEstudiante.getRelacionCarreraEstudiante().getFechaDeEgreso() != null) {
+                carreras.get(nombreCarrera).addEgresado(new EstudianteReporte(carreraEstudiante.getEstudiante().getDni(), carreraEstudiante.getEstudiante().getNombre(), carreraEstudiante.getEstudiante().getApellido()), carreraEstudiante.getRelacionCarreraEstudiante().getFechaDeEgreso().getYear());
             }
         }
 
-
-        List<CarreraPorAnios> carreras = new ArrayList<>();
-        for (Map.Entry<String, Map<Integer, Anio>> entry : datosPorCarreraYAnio.entrySet()) {
-            CarreraPorAnios carreraPorAnios = new CarreraPorAnios(entry.getKey(),new ArrayList<>(entry.getValue().values()));
-            carreras.add(carreraPorAnios);
-        }
-        ReporteDeCarreras reporte = new ReporteDeCarreras(carreras);
-        return reporte;
+        return new ReporteDeCarreras(new ArrayList<>(carreras.values()));
     }
-*/
 
 }

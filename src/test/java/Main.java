@@ -56,10 +56,10 @@ public class Main {
         estudianteRepository.addEstudianteToCarrera(e1, c3) ;
         estudianteRepository.addEstudianteToCarrera(e2, c2);
         estudianteRepository.addEstudianteToCarrera(e3, c3);
- */
+ */     System.out.println(carreraRepository.getReport());
 
-        System.out.println(carreraRepository.getCarreras());        //obtiene todas las carreras
-        System.out.println(estudianteRepository.getEstudiantes());  //obtiene todos los estudiantes
+        //System.out.println(carreraRepository.getCarreras());        obtiene todas las carreras
+        //System.out.println(estudianteRepository.getEstudiantes());  obtiene todos los estudiantes
 
         em.close();
         emf.close();

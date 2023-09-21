@@ -1,6 +1,6 @@
 package percistence.repositories.Interface;
 
-import DTOs.ReporteDeCarreras;
+import DTOs.ReporteDeCarrerasDTO;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 
@@ -24,6 +24,6 @@ public interface InterfaceCarreraRepository {
 
     List<Carrera> getWithIscriptosOrderByCant() throws Exception;
 
-    ReporteDeCarreras getReport();
+    ReporteDeCarrerasDTO getReport();
 
 }

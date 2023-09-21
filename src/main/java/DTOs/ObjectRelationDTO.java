@@ -4,14 +4,14 @@ import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;
 
-public class CarreraEstudiante {
+public class ObjectRelationDTO {
     private Carrera carrera;
     private Estudiante estudiante;
     private RelacionCarreraEstudiante relacionCarreraEstudiante;
     private int fechaInscripcion;
     private int fechaEgreso;
 
-    public CarreraEstudiante(Carrera carrera, Estudiante estudiante, RelacionCarreraEstudiante relacionCarreraEstudiante) {
+    public ObjectRelationDTO(Carrera carrera, Estudiante estudiante, RelacionCarreraEstudiante relacionCarreraEstudiante) {
         this.carrera = carrera;
         this.estudiante = estudiante;
         this.relacionCarreraEstudiante = relacionCarreraEstudiante;

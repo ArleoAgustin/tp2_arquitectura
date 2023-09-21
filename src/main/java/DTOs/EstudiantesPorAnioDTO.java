@@ -1,19 +1,17 @@
 package DTOs;
 
-import percistence.entities.Estudiante;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Anio {
+public class EstudiantesPorAnioDTO {
 
     private final int anio;
-    private  List<EstudianteReporte> inscriptos;
-    private  List<EstudianteReporte> egresados;
+    private  List<EstudianteReporteDTO> inscriptos;
+    private  List<EstudianteReporteDTO> egresados;
 
 
 
-    public Anio(int anio) {
+    public EstudiantesPorAnioDTO(int anio) {
         this.anio = anio;
         this.inscriptos = new ArrayList<>();
         this.egresados = new ArrayList<>();
@@ -23,19 +21,19 @@ public class Anio {
         return anio;
     }
 
-    public List<EstudianteReporte> getInscriptos() {
+    public List<EstudianteReporteDTO> getInscriptos() {
         return inscriptos;
     }
 
-    public List<EstudianteReporte> getEgresados() {
+    public List<EstudianteReporteDTO> getEgresados() {
         return egresados;
     }
 
-    public void addIscripto(EstudianteReporte e) {
+    public void addIscripto(EstudianteReporteDTO e) {
         inscriptos.add(e);
     }
 
-    public void addEgresado(EstudianteReporte e) {
+    public void addEgresado(EstudianteReporteDTO e) {
         egresados.add(e);
     }
 

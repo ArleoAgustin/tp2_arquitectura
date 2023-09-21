@@ -1,9 +1,9 @@
 package percistence.repositories;
 
-import DTOs.CarreraEstudiante;
-import DTOs.CarreraPorAnios;
-import DTOs.EstudianteReporte;
-import DTOs.ReporteDeCarreras;
+import DTOs.ObjectRelationDTO;
+import DTOs.CarreraReporteDTO;
+import DTOs.EstudianteReporteDTO;
+import DTOs.ReporteDeCarrerasDTO;
 import percistence.repositories.Interface.InterfaceCarreraRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
@@ -14,7 +14,6 @@ import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CarreraRepository implements InterfaceCarreraRepository {
 
@@ -79,7 +78,7 @@ public class CarreraRepository implements InterfaceCarreraRepository {
         return this.entityManager.createQuery(jpql,Carrera.class).getResultList();
     }
 
-    public ReporteDeCarreras getReport(){
+    public ReporteDeCarrerasDTO getReport(){
         String jpql = "SELECT c, r, e " +
                 "FROM Carrera c " +
                 "INNER JOIN c.inscriptos r " +
@@ -88,23 +87,23 @@ public class CarreraRepository implements InterfaceCarreraRepository {
         TypedQuery<Object[]> query = entityManager.createQuery(jpql, Object[].class);
 
         List<Object[]> resultados = query.getResultList();
-        List<CarreraEstudiante> data = new ArrayList<>();
+        List<ObjectRelationDTO> data = new ArrayList<>();
         for (Object[] resultado : resultados){
-            data.add(new CarreraEstudiante((Carrera)resultado[0], (Estudiante)resultado[2], (RelacionCarreraEstudiante)resultado[1]));
+            data.add(new ObjectRelationDTO((Carrera)resultado[0], (Estudiante)resultado[2], (RelacionCarreraEstudiante)resultado[1]));
         }
-        HashMap<String, CarreraPorAnios> carreras = new HashMap<>();
-        for (CarreraEstudiante carreraEstudiante : data) {
-            String nombreCarrera = carreraEstudiante.getCarrera().getNombre();
-            if(!carreras.containsKey(carreraEstudiante.getCarrera().getNombre())){
-                carreras.put(nombreCarrera, new CarreraPorAnios(nombreCarrera));
+        HashMap<String, CarreraReporteDTO> carreras = new HashMap<>();
+        for (ObjectRelationDTO objectRelationDTO : data) {
+            String nombreCarrera = objectRelationDTO.getCarrera().getNombre();
+            if(!carreras.containsKey(objectRelationDTO.getCarrera().getNombre())){
+                carreras.put(nombreCarrera, new CarreraReporteDTO(nombreCarrera));
             }
-            carreras.get(nombreCarrera).addIngresante(new EstudianteReporte(carreraEstudiante.getEstudiante().getDni(), carreraEstudiante.getEstudiante().getNombre(), carreraEstudiante.getEstudiante().getApellido()) , carreraEstudiante.getRelacionCarreraEstudiante().getFechaDeInscripcion().getYear());
-            if(carreraEstudiante.getRelacionCarreraEstudiante().getFechaDeEgreso() != null) {
-                carreras.get(nombreCarrera).addEgresado(new EstudianteReporte(carreraEstudiante.getEstudiante().getDni(), carreraEstudiante.getEstudiante().getNombre(), carreraEstudiante.getEstudiante().getApellido()), carreraEstudiante.getRelacionCarreraEstudiante().getFechaDeEgreso().getYear());
+            carreras.get(nombreCarrera).addIngresante(new EstudianteReporteDTO(objectRelationDTO.getEstudiante().getDni(), objectRelationDTO.getEstudiante().getNombre(), objectRelationDTO.getEstudiante().getApellido()) , objectRelationDTO.getRelacionCarreraEstudiante().getFechaDeInscripcion().getYear());
+            if(objectRelationDTO.getRelacionCarreraEstudiante().getFechaDeEgreso() != null) {
+                carreras.get(nombreCarrera).addEgresado(new EstudianteReporteDTO(objectRelationDTO.getEstudiante().getDni(), objectRelationDTO.getEstudiante().getNombre(), objectRelationDTO.getEstudiante().getApellido()), objectRelationDTO.getRelacionCarreraEstudiante().getFechaDeEgreso().getYear());
             }
         }
 
-        return new ReporteDeCarreras(new ArrayList<>(carreras.values()));
+        return new ReporteDeCarrerasDTO(new ArrayList<>(carreras.values()));
     }
 
 }

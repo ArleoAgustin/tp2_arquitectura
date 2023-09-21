@@ -1,19 +1,17 @@
 package DTOs;
 
-import percistence.entities.Carrera;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReporteDeCarreras {
+public class ReporteDeCarrerasDTO {
 
-    private List<CarreraPorAnios> carreras;
+    private List<CarreraReporteDTO> carreras;
 
-    public ReporteDeCarreras(List<CarreraPorAnios> carreras){
+    public ReporteDeCarrerasDTO(List<CarreraReporteDTO> carreras){
         this.carreras = new ArrayList<>(carreras);
     }
 
-    public void addCarrera(List <CarreraPorAnios> carreras){
+    public void addCarrera(List <CarreraReporteDTO> carreras){
         this.carreras.addAll(carreras);
     }
 

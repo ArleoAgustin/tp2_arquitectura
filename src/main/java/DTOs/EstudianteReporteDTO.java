@@ -1,14 +1,12 @@
 package DTOs;
 
-import percistence.entities.Estudiante;
-
-public class EstudianteReporte {
+public class EstudianteReporteDTO {
 
     String nombre;
     String apellido;
     int dni;
 
-    public EstudianteReporte(int dni, String nombre, String apellido) {
+    public EstudianteReporteDTO(int dni, String nombre, String apellido) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;

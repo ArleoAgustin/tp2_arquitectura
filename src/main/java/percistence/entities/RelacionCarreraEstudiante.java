@@ -63,8 +63,8 @@ public class RelacionCarreraEstudiante {
         return fechaDeEgreso;
     }
 
-    public void setFechaDeEgreso(LocalDateTime fechaDeEgreso) {
-        this.fechaDeEgreso = fechaDeEgreso;
+    public void setFechaDeEgreso() {
+        this.fechaDeEgreso = LocalDateTime.now();
     }
 
 

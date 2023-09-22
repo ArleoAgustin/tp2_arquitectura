@@ -23,6 +23,7 @@ public class RelacionCarreraEstudiante {
 
     private LocalDateTime fechaDeEgreso;
 
+
     public RelacionCarreraEstudiante(){}
 
     public RelacionCarreraEstudiante(Carrera carrera, Estudiante estudiante) {
@@ -32,6 +33,7 @@ public class RelacionCarreraEstudiante {
         this.fechaDeEgreso = null;
     }
 
+    //id,id_estudiante,id_carrera,inscripcion,graduacion,antiguedad
     public RelacionCarreraEstudiante(Long id, Estudiante estudiante, Carrera carrera, LocalDateTime fechaDeInscripcion) {
         this.id = id;
         this.estudiante = estudiante;

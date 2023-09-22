@@ -13,6 +13,9 @@ public class Carrera {
     @Column(nullable = false, unique=true)
     private String nombre;
 
+    @Column
+    private int antiguedad;
+
     public Carrera(){}
 
     public Carrera(String nombre) {
@@ -24,9 +27,10 @@ public class Carrera {
         this.idCarrera = idCarrera;
     }
 
-    public Carrera(List<RelacionCarreraEstudiante> inscriptos, String nombre) {
-        this.inscriptos = inscriptos;
+    public Carrera(String nombre, int idCarrera, int antiguedad) {
         this.nombre = nombre;
+        this.idCarrera = idCarrera;
+        this.antiguedad = antiguedad;
     }
 
     public int getIdCarrera() {

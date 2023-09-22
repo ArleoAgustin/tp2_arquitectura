@@ -29,7 +29,6 @@ public class CarreraRepository implements InterfaceCarreraRepository {
             instance = new CarreraRepository();
         }
         return instance;
-
     }
 
     @Override

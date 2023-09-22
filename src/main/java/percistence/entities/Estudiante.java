@@ -31,6 +31,8 @@ public class Estudiante {
     @OneToMany(mappedBy = "estudiante")
     private List<RelacionCarreraEstudiante> carrerasInscriptas;
 
+    public Estudiante() {}
+
     public Estudiante(int dni, String nombre, String apellido, int edad, String genero, String ciudad, int nroLibreta) {
         this.dni = dni;
         this.nombre = nombre;
@@ -41,7 +43,6 @@ public class Estudiante {
         this.genero = genero;
     }
 
-    public Estudiante() {}
 
     public int getDni() {
         return dni;
@@ -93,6 +94,10 @@ public class Estudiante {
 
     public void addCarrera(Carrera c) {
         RelacionCarreraEstudiante carreraInscripta = new RelacionCarreraEstudiante(c, this);
+        this.carrerasInscriptas.add(carreraInscripta);
+    }
+
+    public void addCarrera(RelacionCarreraEstudiante carreraInscripta) {
         this.carrerasInscriptas.add(carreraInscripta);
     }
 

@@ -6,14 +6,13 @@ import java.io.FileReader;
 
 public class ReaderCSV {
 
-    private String fileClientes = "src/main/java/migration/CSVs/clientes.csv";
-    private String fileFacturas = "src/main/java/migration/CSVs/facturas.csv";
-    private String fileProductos = "src/main/java/migration/CSVs/productos.csv";
-    private String fileFacturas_Productos = "src/main/java/migration/CSVs/facturas-productos.csv";
+    private String fileEstudiantes = "src/main/java/migration/CSVs/estudiantes.csv";
+    private String fileEstudianteCarrera = "src/main/java/migration/CSVs/estudainteCarrera.csv";
+    private String fileCarrera = "src/main/java/migration/CSVs/estudiantes.csv";
 
 
     public void readDatesClientes() throws Exception {
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(fileClientes));
+        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(fileEstudiantes));
         //aca guardamos al repository que nos da el factory para usar despues
 
         for(CSVRecord row: parser) {

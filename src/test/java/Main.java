@@ -16,16 +16,13 @@ public class Main {
 
         ReaderCSV readerCSV = new ReaderCSV();
 
-        /*readerCSV.readDatesClientes();
-        readerCSV.readDatesCarrera();
-        readerCSV.readDatesEstudianteCarrera();*/
+        readerCSV.loadEstudiantes();
+        readerCSV.loadCarreras();
+        readerCSV.loadRelation();
 
-        /*Carrera tudai = carreraRepository.getCarrera(1);
-        tudai.matricularEstudiante(estudianteRepository.obtenerPorId(1));
-*/
         System.out.println(carreraRepository.getReport());
-        System.out.println(estudianteRepository.getEstudiantes());
-        System.out.println(carreraRepository.getCarreras());
+/*        System.out.println(estudianteRepository.getEstudiantes());
+        System.out.println(carreraRepository.getCarreras());*/
 
         EntityManager.closeEntityManager();
     }

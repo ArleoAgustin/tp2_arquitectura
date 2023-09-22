@@ -15,9 +15,18 @@ import java.util.Map;
 public class CarreraRepository implements InterfaceCarreraRepository {
 
     private EntityManager entityManager;
+    private static CarreraRepository instance;
 
-    public CarreraRepository() throws Exception {
+    private CarreraRepository(){
         this.entityManager = percistence.connection.EntityManager.getEntityManager();
+    }
+
+    public static CarreraRepository getInstance(){
+        if (instance == null) {
+            instance = new CarreraRepository();
+        }
+        return instance;
+
     }
 
     @Override

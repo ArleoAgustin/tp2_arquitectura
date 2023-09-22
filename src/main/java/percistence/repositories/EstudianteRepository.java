@@ -5,16 +5,27 @@ import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Stack;
 
 public class EstudianteRepository implements InterfaceEstudianteRepository {
 
     private EntityManager entityManager;
+    private static EstudianteRepository instance;
 
-    public EstudianteRepository() throws Exception {
+    private EstudianteRepository(){
         this.entityManager = percistence.connection.EntityManager.getEntityManager();
+    }
+
+    public static EstudianteRepository getInstance(){
+        if (instance == null) {
+            instance = new EstudianteRepository();
+        }
+        return instance;
+
     }
 
     @Override

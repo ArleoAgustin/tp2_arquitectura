@@ -113,7 +113,7 @@ public class Estudiante {
             }
             return result;
         } else {
-            return "no hay inscriptos";
+            return "ninguna";
         }
     }
 

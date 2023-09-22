@@ -39,14 +39,14 @@ public class CarreraRepository implements InterfaceCarreraRepository {
     }
 
     @Override
-    public void deleteCarrera(Long id) throws Exception {
+    public void deleteCarrera(int id) throws Exception {
         entityManager.getTransaction().begin();
         entityManager.remove(entityManager.find(Carrera.class, id));
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public Carrera getCarrera(Long id) throws Exception {
+    public Carrera getCarrera(int id) throws Exception {
         return entityManager.find(Carrera.class, id);
     }
 

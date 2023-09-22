@@ -43,7 +43,7 @@ public class EstudianteRepository implements InterfaceEstudianteRepository {
     }
 
     @Override
-    public void deleteEstudiante(Long id) throws Exception {
+    public void deleteEstudiante(int id) throws Exception {
         Estudiante p = obtenerPorId(id);
         if (p != null) {
             entityManager.getTransaction().begin();
@@ -52,9 +52,10 @@ public class EstudianteRepository implements InterfaceEstudianteRepository {
         }
     }
 
-    public Estudiante obtenerPorId(Long id) {
+    public Estudiante obtenerPorId(int id) {
         return entityManager.find(Estudiante.class, id);
     }
+
 
     @Override
     public List getEstudiantes() throws Exception {

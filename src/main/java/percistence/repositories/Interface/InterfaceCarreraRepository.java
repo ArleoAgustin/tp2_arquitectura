@@ -10,9 +10,9 @@ public interface InterfaceCarreraRepository {
 
     void addCarrera(Carrera c) throws Exception;
 
-    void deleteCarrera(Long id) throws Exception;
+    void deleteCarrera(int id) throws Exception;
 
-    Carrera getCarrera(Long id) throws Exception;
+    Carrera getCarrera(int id) throws Exception;
 
     void updateCarrera(Carrera c) throws Exception;
 

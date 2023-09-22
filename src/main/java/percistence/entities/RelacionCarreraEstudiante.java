@@ -10,7 +10,7 @@ public class RelacionCarreraEstudiante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    int id;
     @ManyToOne
     @JoinColumn(name = "dni")
     private Estudiante estudiante;
@@ -34,14 +34,14 @@ public class RelacionCarreraEstudiante {
     }
 
     //id,id_estudiante,id_carrera,inscripcion,graduacion,antiguedad
-    public RelacionCarreraEstudiante(Long id, Estudiante estudiante, Carrera carrera, LocalDateTime fechaDeInscripcion) {
+    public RelacionCarreraEstudiante(int id, Estudiante estudiante, Carrera carrera, LocalDateTime fechaDeInscripcion) {
         this.id = id;
         this.estudiante = estudiante;
         this.carrera = carrera;
         this.fechaDeInscripcion = fechaDeInscripcion;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

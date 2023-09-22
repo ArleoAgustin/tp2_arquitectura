@@ -42,7 +42,7 @@ public class ReaderCSV {
         EstudianteRepository  estudianteRepository = repositoryFactory.getInstanceEstudianteRepository();
         CarreraRepository  carreraRepository = repositoryFactory.getInstanceCarreraRepository();
 
-        for(CSVRecord row: file) {//id,id_estudiante,id_carrera,inscripcion,graduacion,antiguedad
+        for(CSVRecord row: file) {
             Carrera c = carreraRepository.getCarrera(Integer.parseInt(row.get("id_carrera")));
             Estudiante e = estudianteRepository.obtenerPorId(Integer.parseInt(row.get("id_estudiante")));
             RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(Integer.parseInt(row.get("id")), e, c, LocalDateTime.of(Integer.parseInt(row.get("inscripcion")), 1, 1, 1, 1), LocalDateTime.of(Integer.parseInt(row.get("graduacion")), 1, 1, 1, 1));

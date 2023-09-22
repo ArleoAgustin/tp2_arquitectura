@@ -3,6 +3,8 @@ package DTOs;
 import java.util.ArrayList;
 import java.util.List;
 
+import static DTOs.CarreraReporteDTO.SEPARADOR;
+
 public class EstudiantesPorAnioDTO {
 
     private final int anio;
@@ -39,9 +41,9 @@ public class EstudiantesPorAnioDTO {
 
     @Override
     public String toString() {
-        return
-                ", inscriptos=" + inscriptos +
-                ", egresados=" + egresados +
-                '}'+'\n';
+        return '\n'+ SEPARADOR +SEPARADOR + anio +":"+'\n'+
+                SEPARADOR+SEPARADOR + SEPARADOR +"inscriptos:" + inscriptos +'\n'+
+                SEPARADOR+SEPARADOR + SEPARADOR +"egresados:" + egresados +
+                '\n';
     }
 }

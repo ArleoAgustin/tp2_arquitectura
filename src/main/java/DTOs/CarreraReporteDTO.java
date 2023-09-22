@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class CarreraReporteDTO {
 
+
+    public static final String SEPARADOR = "       ";
     private final String nombre;
     private HashMap<Integer, EstudiantesPorAnioDTO> anios;
 
@@ -33,8 +35,12 @@ public class CarreraReporteDTO {
     @Override
     public String toString() {
         return
-                "carrera= '" + nombre +"'"+
-                ", " + anios +
-                '}'+'\n';
+                SEPARADOR +
+                nombre +
+                ":"+'\n'+
+                SEPARADOR +
+                SEPARADOR +
+                anios.values()+
+                '\n';
     }
 }

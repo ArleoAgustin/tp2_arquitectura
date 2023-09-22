@@ -1,5 +1,7 @@
 package DTOs;
 
+import static DTOs.CarreraReporteDTO.SEPARADOR;
+
 public class EstudianteReporteDTO {
 
     String nombre;
@@ -26,9 +28,9 @@ public class EstudianteReporteDTO {
 
     @Override
     public String toString() {
-        return  nombre  +
-                ", " + apellido + '\'' +
-                ", dni=" + dni +
-                '\n';
+        return  '\n'+SEPARADOR+SEPARADOR+SEPARADOR+SEPARADOR+nombre+
+                ", " + apellido +
+                ", dni=" + dni
+                ;
     }
 }

@@ -18,8 +18,9 @@ public class ReporteDeCarrerasDTO {
 
     @Override
     public String toString() {
-        return "ReporteDeCarreras{" +
-                " " + carreras +
-                '}'+'\n';
+        return "ReporteDeCarreras:" +
+                '\n'+
+                carreras +
+                '\n';
     }
 }

@@ -1,6 +1,7 @@
 package percistence.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class Estudiante {
         this.ciudad = ciudad;
         this.nroLibreta = nroLibreta;
         this.genero = genero;
+        this.carrerasInscriptas = new ArrayList<>();
     }
 
 

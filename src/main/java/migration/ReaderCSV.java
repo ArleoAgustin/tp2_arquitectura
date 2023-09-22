@@ -5,10 +5,13 @@ import org.apache.commons.csv.CSVRecord;
 import percistence.connection.RepositoryFactory;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
+import percistence.entities.RelacionCarreraEstudiante;
 import percistence.repositories.CarreraRepository;
 import percistence.repositories.EstudianteRepository;
 
 import java.io.FileReader;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ReaderCSV {
 
@@ -40,12 +43,12 @@ public class ReaderCSV {
         EstudianteRepository  estudianteRepository = repositoryFactory.getInstanceEstudianteRepository();
         CarreraRepository  carreraRepository = repositoryFactory.getInstanceCarreraRepository();
 
-        for(CSVRecord row: parser) {
-           Carrera c =  carreraRepository.getCarrera(Integer.parseInt(row.get("id_carrera")));
-           Estudiante e = estudianteRepository.obtenerPorId(Integer.parseInt(row.get("id_estudiante")));
-           if(e!=null && c!=null) {
-               e.addCarrera(c);
-           }
+        for(CSVRecord row: parser) {//id,id_estudiante,id_carrera,inscripcion,graduacion,antiguedad
+            Carrera c = carreraRepository.getCarrera(Integer.parseInt(row.get("id_carrera")));
+            Estudiante e = estudianteRepository.obtenerPorId(Integer.parseInt(row.get("id_estudiante")));
+            RelacionCarreraEstudiante rce = new RelacionCarreraEstudiante(Integer.parseInt(row.get("id")), e, c, LocalDateTime.of(Integer.parseInt(row.get("inscripcion")), 1, 1, 1, 1), LocalDateTime.of(Integer.parseInt(row.get("graduacion")), 1, 1, 1, 1));
+            estudianteRepository.addEstudianteToCarrera(rce);
+
         }
     }
 }

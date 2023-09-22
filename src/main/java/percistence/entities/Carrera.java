@@ -13,6 +13,8 @@ public class Carrera {
     @Column(nullable = false, unique=true)
     private String nombre;
 
+
+
     @Column
     private int antiguedad;
 
@@ -35,6 +37,14 @@ public class Carrera {
 
     public int getIdCarrera() {
         return idCarrera;
+    }
+
+    public int getAntiguedad() {
+        return antiguedad;
+    }
+
+    public void setAntiguedad(int antiguedad) {
+        this.antiguedad = antiguedad;
     }
 
     public List<RelacionCarreraEstudiante> getInscriptos() {

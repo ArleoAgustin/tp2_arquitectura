@@ -16,12 +16,14 @@ public class Main {
 
         ReaderCSV readerCSV = new ReaderCSV();
 
-        //readerCSV.readDatesClientes();
-        //readerCSV.readDatesCarrera();
-        readerCSV.readDatesEstudianteCarrera();
+        /*readerCSV.readDatesClientes();
+        readerCSV.readDatesCarrera();
+        readerCSV.readDatesEstudianteCarrera();*/
 
-      System.out.println(carreraRepository.getReport());
-
+        /*Carrera tudai = carreraRepository.getCarrera(1);
+        tudai.matricularEstudiante(estudianteRepository.obtenerPorId(1));
+*/
+        System.out.println(carreraRepository.getReport());
         System.out.println(estudianteRepository.getEstudiantes());
         System.out.println(carreraRepository.getCarreras());
 

@@ -2,19 +2,21 @@ package percistence.repositories.Interface;
 
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
+import percistence.entities.RelacionCarreraEstudiante;
 
 import java.util.List;
 
 public interface InterfaceEstudianteRepository {
 
-    public void addEstudiante(Estudiante p) throws Exception;
-    public void updateEstudiante(Estudiante p, Estudiante pNew) throws Exception;
-    public void deleteEstudiante(int id) throws Exception;
-    public List<Estudiante> getEstudiantes() throws Exception;
+    void addEstudiante(Estudiante p) throws Exception;
+    void updateEstudiante(Estudiante p, Estudiante pNew) throws Exception;
+    void deleteEstudiante(int id) throws Exception;
+    List<Estudiante> getEstudiantes() throws Exception;
 
-    public void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception;
+    void addEstudianteToCarrera(Estudiante e, Carrera c) throws Exception;
+    void addEstudianteToCarrera(RelacionCarreraEstudiante rce) throws Exception;
 
-    public List<Estudiante> buscarEstudiantesPorCarrera(Carrera c) throws Exception;
+    List<Estudiante> buscarEstudiantesPorCarrera(Carrera c) throws Exception;
 
     List<Estudiante> getEstudiantesOrderByLastName() throws Exception;
 

@@ -69,6 +69,12 @@ public class EstudianteRepository implements InterfaceEstudianteRepository {
         this.entityManager.persist(rce);
         this.entityManager.getTransaction().commit();
     }
+    @Override
+    public void addEstudianteToCarrera(RelacionCarreraEstudiante rce) throws Exception {
+        this.entityManager.getTransaction().begin();
+        this.entityManager.persist(rce);
+        this.entityManager.getTransaction().commit();
+    }
 
     @Override
     public List<Estudiante> buscarEstudiantesPorCarrera(Carrera c) throws Exception {

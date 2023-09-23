@@ -71,7 +71,6 @@ public class Carrera {
     private String getEstudiantesInscriptos(){
         if(this.inscriptos == null || this.inscriptos.size() == 0) return "no hay inscritos";
         String estudiantes = "";
-        System.out.println(inscriptos);
         for (RelacionCarreraEstudiante inscripto : inscriptos) {
             estudiantes += inscripto.getEstudiante().getApellido() + " " + inscripto.getEstudiante().getNombre() + ", ";
         }

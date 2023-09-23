@@ -15,13 +15,12 @@ public class Main {
         ReaderCSV readerCSV = new ReaderCSV();
 
 
-        readerCSV.loadEstudiantes();
+     /*   readerCSV.loadEstudiantes();
         readerCSV.loadCarreras();
         readerCSV.loadRelation();
+*/
 
-
-/*
-        System.out.println(carreraRepository.getReport());
+       System.out.println(carreraRepository.getReport());
         System.out.println("");
         System.out.println("Estudiantes:");
         System.out.println();
@@ -29,7 +28,6 @@ public class Main {
         System.out.println("");
         System.out.println("Carreras:");
         System.out.println(carreraRepository.getCarreras());
-*/
 
         EntityManager.closeEntityManager();
     }

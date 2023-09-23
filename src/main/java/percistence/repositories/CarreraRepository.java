@@ -57,11 +57,8 @@ public class CarreraRepository implements InterfaceCarreraRepository {
     }
 
     @Override
-    public List<Carrera> getCarreras() throws Exception {
-        entityManager.getTransaction().begin();
-        List<Carrera> query = entityManager.createQuery("SELECT p FROM Carrera p").getResultList();
-        entityManager.getTransaction().commit();
-        return query;
+    public List getCarreras() throws Exception {
+        return  entityManager.createQuery("SELECT p FROM Carrera p").getResultList();
     }
 
     @Override

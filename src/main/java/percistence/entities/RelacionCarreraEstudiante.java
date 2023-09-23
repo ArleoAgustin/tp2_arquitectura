@@ -1,7 +1,6 @@
 package percistence.entities;
 
 import javax.persistence.*;
-import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity

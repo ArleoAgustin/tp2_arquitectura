@@ -8,12 +8,11 @@ import percistence.repositories.Interface.InterfaceCarreraRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;
-
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class CarreraRepository implements InterfaceCarreraRepository {
 
@@ -99,7 +98,7 @@ public class CarreraRepository implements InterfaceCarreraRepository {
         for (Object[] resultado : resultados){
             data.add(new ObjectRelationDTO((Carrera)resultado[0], (Estudiante)resultado[2], (RelacionCarreraEstudiante)resultado[1]));
         }
-        HashMap<String, CarreraReporteDTO> carreras = new HashMap<>();
+        TreeMap<String, CarreraReporteDTO> carreras = new TreeMap<>();
         for (ObjectRelationDTO objectRelationDTO : data) {
             String nombreCarrera = objectRelationDTO.getCarrera().getNombre();
             if(!carreras.containsKey(objectRelationDTO.getCarrera().getNombre())){
@@ -110,7 +109,6 @@ public class CarreraRepository implements InterfaceCarreraRepository {
                 carreras.get(nombreCarrera).addEgresado(new EstudianteReporteDTO(objectRelationDTO.getEstudiante().getDni(), objectRelationDTO.getEstudiante().getNombre(), objectRelationDTO.getEstudiante().getApellido()), objectRelationDTO.getRelacionCarreraEstudiante().getFechaDeEgreso().getYear());
             }
         }
-
         return new ReporteDeCarrerasDTO(new ArrayList<>(carreras.values()));
     }
 

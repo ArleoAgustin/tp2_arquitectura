@@ -4,12 +4,9 @@ import percistence.repositories.Interface.InterfaceEstudianteRepository;
 import percistence.entities.Carrera;
 import percistence.entities.Estudiante;
 import percistence.entities.RelacionCarreraEstudiante;
-
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.Stack;
 
 public class EstudianteRepository implements InterfaceEstudianteRepository {
 

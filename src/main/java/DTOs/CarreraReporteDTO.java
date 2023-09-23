@@ -1,17 +1,16 @@
 package DTOs;
-
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class CarreraReporteDTO {
 
 
     public static final String SEPARADOR = "       ";
     private final String nombre;
-    private HashMap<Integer, EstudiantesPorAnioDTO> anios;
+    private TreeMap<Integer, EstudiantesPorAnioDTO> anios;
 
     public CarreraReporteDTO(String nombre) {
         this.nombre = nombre;
-        this.anios = new HashMap<>();
+        this.anios = new TreeMap<>();
     }
 
     public String getNombre() {

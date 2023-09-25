@@ -6,6 +6,9 @@ import percistence.repositories.EstudianteRepository;
 
 public class Main {
 
+    //inicializar docker compose para levantar la db
+    //en la raiz del proyecto esta el diagrama DER
+
     public static void main(String[] args) throws Exception {
 
         RepositoryFactory repositoryFactory = new RepositoryFactory();
@@ -15,12 +18,12 @@ public class Main {
         ReaderCSV readerCSV = new ReaderCSV();
 
 
-     /*   readerCSV.loadEstudiantes();
+        readerCSV.loadEstudiantes();
         readerCSV.loadCarreras();
         readerCSV.loadRelation();
-*/
 
-       System.out.println(carreraRepository.getReport());
+/*
+        System.out.println(carreraRepository.getReport());
         System.out.println("");
         System.out.println("Estudiantes:");
         System.out.println();
@@ -28,6 +31,7 @@ public class Main {
         System.out.println("");
         System.out.println("Carreras:");
         System.out.println(carreraRepository.getCarreras());
+*/
 
         EntityManager.closeEntityManager();
     }
